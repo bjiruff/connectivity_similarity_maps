@@ -13,6 +13,6 @@ From https://male-cns.janelia.org/download/, obtain:
 - body-annotations-male-cns-v0.9-minconf-0.5.feather
 - connectome-weights-male-cns-v0.9-minconf-0.5.feather
 ### MANC
-At the time of writing, a download catalog for MANC 1.2.1 does not exist. MANC data was instead obtained using neuprint-python's API. Obtain an authorization token [here](https://connectome-neuprint.github.io/neuprint-python/docs/quickstart.html#quickstart), and within `scripts/convert_manc`, paste your token. 
+At the time of writing, a download catalog for MANC 1.2.1 does not exist. MANC data was instead obtained using neuprint-python's API. Obtain an authorization token [here](https://connectome-neuprint.github.io/neuprint-python/docs/quickstart.html#quickstart), and within `scripts/convert_manc.py`, paste your token. 
 ## 2. Converting Connectome Data
-Upon obtaining the necessary files, the raw datasets need to be converted to a common format. Run `convert_all.py` to do so. Then, you can begin making the similarity maps in `analysis.ipynb`.
+Upon obtaining the necessary files, the raw datasets need to be converted to a common format. Run `convert_datasets.py` to do so. Then, you can begin making the similarity maps in `analysis.ipynb`.
