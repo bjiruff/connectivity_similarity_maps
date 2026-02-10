@@ -72,26 +72,23 @@ def main():
     # Make connections csv.
     # Make separate csvs for all traced connections and all traced connections with synapse count > 5.
     raw_connections_df = raw_connections_df[raw_connections_df["weight"] >= 5]
-    header = [
-        "pre_root_id",
-        "post_root_id",
-        "syn_count"
-    ]
-    data = []
-    for row in raw_connections_df.itertuples():
-        body_pre = row.body_pre
-        body_post = row.body_post
-        weight = row.weight
-        body_pre_df = raw_annotations_df[raw_annotations_df["bodyId"] == body_pre]
-        body_post_df = raw_annotations_df[raw_annotations_df["bodyId"] == body_post]
-        if body_pre_df.empty or body_post_df.empty:
-            continue
-        if body_pre_df["status"].iloc[0] != "Traced" or body_post_df["status"].iloc[0] != "Traced":
-            continue
-        data.append([body_pre, body_post, weight])
-    connections_df = pd.DataFrame(data=data, columns=header)
+
+    traced_bodies = set(
+        raw_annotations_df[raw_annotations_df["status"] == "Traced"]["bodyId"]
+    )
+
+    connections_df = raw_connections_df[
+        raw_connections_df["body_pre"].isin(traced_bodies) & 
+        raw_connections_df["body_post"].isin(traced_bodies)
+    ][["body_pre", "body_post", "weight"]].rename(columns={
+        "body_pre": "pre_root_id",
+        "body_post": "post_root_id", 
+        "weight": "syn_count"
+    })
+
     connections_df.to_csv(PROCESSED_DIR / "mcns_connections.csv", index=False)
     print("mcns_connections.csv created")
+
 
 if __name__ == "__main__":
     main()
