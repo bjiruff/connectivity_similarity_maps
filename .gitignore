@@ -1,8 +1,16 @@
+.venv/
+secret.py
 __pycache__/
 import_trace.log
 .ipynb_checkpoints/
 .DS_Store
+*.egg-info
+savefigs/*
+!savefigs/.gitkeep
+deprecated/
 data/raw/*
 data/processed/*
 !data/raw/.gitkeep
-!data/processed/.gitkeep
+!data/processed/oa_name_map.csv
+toy.ipynb
+analysis.ipynb
