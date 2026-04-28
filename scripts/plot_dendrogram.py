@@ -4,7 +4,7 @@ from proj.config.consts import OA_FAFB, OA_MCNS, OA_MANC
 from proj.config.paths import SAVEFIGS_DIR
 
 def main():
-    """Plot dendrogram and merge distance and acceleration plots seen in figures ..."""
+    """Plot dendrogram and elbow method. Figures 5A-D, S5A-B, S5E-F."""
 
     dataset = "fafb" # Specify from which connectome to pull OA neuron data from. 'fafb', 'mcns', or 'manc'.
     direction = "downstream" # Specify if you want to find 'upstream', 'downstream', or 'combined' upstream+downstream similarities.

@@ -5,9 +5,9 @@ description = ""
 authors = [
     {name = "Bruce Ruff"}
 ]
-license = "MIT License"
+license = "MIT"
 readme = "README.md"
-requires-python = ">=3.11,<3.14"
+requires-python = ">=3.11"
 dependencies = [
     "numpy (>=2.4.4,<3.0.0)",
     "pandas (>=3.0.2,<4.0.0)",
@@ -15,7 +15,8 @@ dependencies = [
     "plotly (>=6.6.0,<7.0.0)",
     "scipy (>=1.17.1,<2.0.0)",
     "neuprint-python (>=0.6.1,<0.7.0)",
-    "scikit-learn (>=1.8.0,<2.0.0)"
+    "scikit-learn (>=1.8.0,<2.0.0)",
+    "dotenv (>=0.9.9,<0.10.0)"
 ]
 
 

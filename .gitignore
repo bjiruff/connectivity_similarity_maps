@@ -1,4 +1,5 @@
 .venv/
+.env
 secret.py
 __pycache__/
 import_trace.log

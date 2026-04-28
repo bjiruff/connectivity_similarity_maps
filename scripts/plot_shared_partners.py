@@ -3,6 +3,7 @@ import proj.plotting.partners as p
 from proj.config.paths import SAVEFIGS_DIR
 
 def main():
+    """Plot shared partner among OA types plots. Figures 5K-L, S5C-D."""
     # Specify which types you want as references when finding shared partners among OA types.
     oa_type1 = "VUMa2" # This will very likely break if you change to anything other than VUMa2 and VUMa5.
     oa_type2 = "VUMa5"

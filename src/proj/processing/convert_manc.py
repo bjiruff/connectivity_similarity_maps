@@ -1,13 +1,14 @@
+import os
+from dotenv import load_dotenv
 import pandas as pd
 import neuprint
-from neuprint import Client
 from proj.config.paths import PROCESSED_DIR
-from proj.config.secret import NEUPRINT_KEY
 
 # Converting MANC to FAFB-like sheets
 def main():
-    TOKEN = NEUPRINT_KEY
-    c = Client("neuprint.janelia.org", dataset="manc:v1.2.1", token=TOKEN)
+    load_dotenv()
+    TOKEN = os.getenv("NEUPRINT_TOKEN")
+    c = neuprint.Client("neuprint.janelia.org", dataset="manc:v1.2.1", token=TOKEN)
 
     raw_neurons_df, _ = neuprint.queries.fetch_neurons(returned_columns=[
         "bodyId",
